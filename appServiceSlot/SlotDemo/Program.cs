@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 // Get the slot name from Azure environment variable
-var slotName = Environment.GetEnvironmentVariable("WEBSITE_SLOT_NAME") ?? "Production";
+var slotName = Environment.GetEnvironmentVariable("WEBSITE_SLOT_NAME") ?? "staging";
 var environment = app.Environment.EnvironmentName;
 
 app.MapGet("/", () => Results.Content($@"
@@ -105,7 +105,7 @@ app.MapGet("/", () => Results.Content($@"
         </div>
         
         <p style='margin-top: 30px; color: #718096;'>
-            {(slotName == "Production" 
+            {(slotName == "staging" 
                 ? "✅ This is the PRODUCTION environment" 
                 : "⚠️ This is a STAGING SLOT environment")}
         </p>
