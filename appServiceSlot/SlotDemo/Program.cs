@@ -11,13 +11,15 @@ app.MapGet("/", () => Results.Content($@"
 <html>
 <head>
     <title>Slot Demo</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <style>
         body {{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background: {(slotName == "Production" ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" : "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)")};
         }}
@@ -28,6 +30,7 @@ app.MapGet("/", () => Results.Content($@"
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             max-width: 600px;
+            margin: 20px;
         }}
         h1 {{
             font-size: 3.5em;
@@ -68,6 +71,7 @@ app.MapGet("/", () => Results.Content($@"
         .value {{
             color: #2d3748;
             font-family: 'Courier New', monospace;
+            word-break: break-all;
         }}
         .emoji {{
             font-size: 4em;
