@@ -1,4 +1,4 @@
-name: Build and deploy ASP.NET Core app to Azure Web App - slotAppService
+name: Build and deploy ASP.NET Core app to Azure Web App -AppService
 
 on:
   push:
