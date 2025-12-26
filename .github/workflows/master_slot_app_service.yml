@@ -19,16 +19,19 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: |
+          cd appServiceSlot
+          dotnet build SlotDemo.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: |
+          cd appServiceSlot
+          dotnet publish SlotDemo.sln -c Release -o ../publish
 
       - name: Deploy to Azure Web App Slot
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'myapp-app'
           slot-name: 'myapp-slot'
           publish-profile: ${{ secrets.AZURE_WEBAPP_SLOT_PUBLISH_PROFILE }}
-          package: ${{env.DOTNET_ROOT}}/myapp
+          package: ./publish
