@@ -1,5 +1,4 @@
-name: Build and Deploy .NET 8 App to Azure Web App Slot
-
+name: Build and Deploy .NET 8 App to Azure Web App Slott
 on:
   push:
     branches:
