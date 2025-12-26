@@ -1,4 +1,4 @@
-name: Build and Deploy .NET 6 App to Azure Web App Slot
+name: Build and Deploy .NET 8 App to Azure Web App Slot
 
 on:
   push:
